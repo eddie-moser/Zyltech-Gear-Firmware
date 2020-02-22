@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#ifdef __STM32F1__
+#if defined(__STM32F1__) && !defined(HAVE_SW_SERIAL)
 
 /**
  * Empty class for Software Serial implementation (Custom RX/TX pins)
@@ -28,7 +28,7 @@
 
 // Constructor
 
-SoftwareSerial::SoftwareSerial(pin_t RX_pin, pin_t TX_pin) {}
+SoftwareSerial::SoftwareSerial(int8_t RX_pin, int8_t TX_pin) {}
 
 // Public
 

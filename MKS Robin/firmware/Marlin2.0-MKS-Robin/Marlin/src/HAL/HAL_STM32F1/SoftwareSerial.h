@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,13 +18,15 @@
  */
 #pragma once
 
-#include "HAL.h"
+#include <stdint.h>
 
-#define SW_SERIAL_PLACEHOLDER 1
+#ifndef HAVE_SW_SERIAL
+   #define SW_SERIAL_PLACEHOLDER 1
+#endif
 
 class SoftwareSerial {
 public:
-  SoftwareSerial(pin_t RX_pin, pin_t TX_pin);
+  SoftwareSerial(int8_t RX_pin, int8_t TX_pin);
 
   void begin(const uint32_t baudrate);
 
